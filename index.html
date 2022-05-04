@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>j2x | URL Redirect</title>
+  </head>
+  <body>
+    <pre></pre>
+    <script>
+      pre = s => document.querySelector( 'pre' ).innerHTML += s
+      if ( location.hash )
+        pre( 'Nothing at ' + location.hash.slice(1) + '<br/><a href=".">View links</a>' )
+      else
+        fetch( 'config.json' )
+          .then( r => r.json() )
+          .then( r => pre( JSON.stringify( r, null, 4 ) ) )
+    </script>
+  </body>
+</html>

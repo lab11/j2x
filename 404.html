@@ -1,0 +1,6 @@
+<script>
+  fetch( 'config.json' )
+    .then( r => r.json() )
+    .then( r => location = r[ location.pathname.split('/').pop() ] || './#' + location )
+    .catch( e => location = './#' + location )
+</script>
